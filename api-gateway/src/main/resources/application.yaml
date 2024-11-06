@@ -4,6 +4,10 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: passenger-service
+              uri: lb://passenger-service
+              predicates:
+                - Path=/api/v1/passengers/**
         - id: discovery-server
           uri: http://discovery-server:8761
           predicates:
